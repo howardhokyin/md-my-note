@@ -1,7 +1,7 @@
 # Github
 
-
 4-stages of workflow
+
 1. Untracked
 2. Tracked
 3. Staged
