@@ -1,3 +1,9 @@
+# React
+
+## What is React?
+
+-A library for building interactive UIs.
+
 ## Install react
 
 1. > npx create-react-app my-app
