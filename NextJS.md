@@ -48,3 +48,21 @@ Two types: 1. Client-side 2. Server-side
 -`Render at request time`
 
 ## Authentication
+
+```typescript
+const options = {
+...
+callbacks: {
+async signIn({ account, profile }) {
+if (account.provider === "google") {
+return profile.email_verified && profile.email.endsWith("@example.com")
+}
+return true // Do different verification for other providers that don't have `email_verified`
+},
+}
+...
+}
+```
+
+For production: https://{YOUR_DOMAIN}/api/auth/callback/google
+For development: http://localhost:3000/api/auth/callback/google
