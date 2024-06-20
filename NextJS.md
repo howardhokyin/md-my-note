@@ -49,6 +49,11 @@ Two types: 1. Client-side 2. Server-side
 
 ## Authentication
 
+### files set up
+
+1. auth.ts
+2. .env.local
+
 ```typescript
 const options = {
 ...
