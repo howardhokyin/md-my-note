@@ -1,2 +1,2 @@
-# Hi there👋, welcome to my notes shell.
+# Hi there👋, welcome to my notes Nexus.
 
