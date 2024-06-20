@@ -1,7 +1,5 @@
 # PostgreSQL
 
-## PostgreSQL
-
 - relational database management system.
 - ACID
 
