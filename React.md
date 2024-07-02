@@ -15,6 +15,8 @@
 
 ## useState
 
+[React UseState](https://react.dev/reference/react/useState#usestate)
+
 > `useState` returns 2 values: the first is the current state (`count`), and the second is a function that updates this state (`setCount`). Below is a simple example to show how `useState` works in React.
 
 Example:
