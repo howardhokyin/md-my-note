@@ -12,6 +12,7 @@
     - [Yoga](#yoga)
   - [Flow](#flow)
 - [Compare with Rest](#compare-with-rest)
+- [Reference](#reference)
 
 # Rest
 
@@ -200,16 +201,42 @@ const resolvers={
 
 - Any kind of action we want to do for the data.
 
+- Here is example for `add`, `delete` and `update`
+
 1. Add `type Mutation` on `schema`
 
 ```gql
 type Mutation {
   deleteGame(id: ID!): [Game]
   addGame(game: AddGameInput!): Game # see below caution: group args
+  updateGame(id: ID!, edits: EditGameInput!): Game
 }
 ```
 
-2. add `mutation` on `resolver`
+> **Caution**: To add a group of argument like `addGame(id,title,platform)`. We can use `input AddGameInput{}` example below:
+>
+> > ```gql
+> > input AddGameInput {
+> >   title: String!
+> >   platform: [String!]!
+> > }
+> > ```
+>
+> ---
+
+> **Caution**: To edit a group of argument like `editGame(id,title,platform)`. We can use `input EditGameInput{}` example below:
+>
+> > ```gql
+> > # not using AddGameInput since it will have to update two data
+> > input EditGameInput {
+> >   title: String
+> >   platform: [String!]!
+> > }
+> > ```
+>
+> ---
+
+2. Add `mutation` on `resolver`
 
 ```gql
 const resolvers={
@@ -237,7 +264,7 @@ const resolvers={
       return db.games.find((g)=> g.id === parent.game_id)
     }
   }
-  # this part added
+  # this part added >>>>>>>>>
   Mutation:{
     deleteGame(_,args){
       return db.games.filter((g)=>g.id!==args.id)
@@ -251,20 +278,22 @@ const resolvers={
       db.games.push(game)
       return game
     }
+    updateGame(_,args){
+      # mapping to create a new array of games
+      db.games = db.games.map((g)=>{
+        if (g.id === args.id){
+          return {...g, ...args.edits}
+        }
+        return g
+      })
+
+      return db.games.find((g)=> g.id === args.id)
+    }
   }
+
+  # this part added <<<<<<
 }
 ```
-
-> **Caution**: To add a group of argument like `addGame(id,name,title)`. We can use `input AddGameInput{}` example below:
->
-> > ```gql
-> > input AddGameInput {
-> >   title: String!
-> >   platform: [String!]!
-> > }
-> > ```
->
-> ---
 
 ## Connection for each file
 
@@ -281,3 +310,7 @@ const resolvers={
 # Compare with Rest
 
 ✅ Solved over-fetching or under-fetching
+
+# Reference
+
+[YouTube: GraphQL Course for Beginners](https://www.youtube.com/watch?v=5199E50O7SI)
