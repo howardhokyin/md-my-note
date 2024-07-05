@@ -1,4 +1,6 @@
-# React
+- [What is React](#what-is-react)
+- [Hooks](#hooks)
+  - [useState](#usestate)
 
 ## What is React?
 
@@ -13,7 +15,9 @@
 1. must use hook inside function component
 2. always the top level no if / loop...
 
-## useState
+## Hooks
+
+### `useState`
 
 [React UseState](https://react.dev/reference/react/useState#usestate)
 
@@ -43,9 +47,9 @@ return (
 )
 ```
 
-## useEffect
+### `useEffect`
 
-## useReducer
+### `useReducer`
 
 ##
 
@@ -68,8 +72,6 @@ return (
 </details>
 
 ---
-
-# React
 
 1. Prop drilling
 
