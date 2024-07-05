@@ -342,8 +342,10 @@ const resolvers={
 - Comparison
   | | REST | GraphQL |
   | ------------------- | :----------------: | --------------: |
-  |✅ | | |
-  |❌ |If 1+n table, multiple req from client side | Cache |
+  |✅ | | Single req|
+  |✅ |Cache | |
+  |❌ |If 1+n table, multiple req from client side | |
+  |❌ |Over-fetching and Under-fetching | |
 
 # Reference
 
