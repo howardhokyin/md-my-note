@@ -7,6 +7,7 @@
   - [Resolver](#resolver)
   - [Query Variable](#query-variable)
   - [Related Data](#related-data-like-how-to-connect-different-table)
+  - [Mutation](#mutation-add-delete-edit)
   - [GraphQL servers](#graphql-servers)
     - [Apollo](#apollo)
     - [Yoga](#yoga)
@@ -18,7 +19,7 @@
 
 ## Problem
 
-- Receiving the data than it needs
+- Lead to `over-fetching` or `under-fetching` of data.
 
 # GraphQL
 
@@ -33,11 +34,16 @@
 
 A client sends a GraphQL query or mutation request to the GraphQL Yoga server.
 
+- **Query**: Used to request data.
+- **Mutation**: Used to modify data.
+
 ## Schema
 
 - Acts as the `contract` between the `client` and `server` / `frontend` and `backend`
 - Define all operation that API can do, i.e what field will be returned
 - Every single schema must have query
+- Doesn't use URL to specify resources (❌GET/books/123)
+- Define relationship on schema
 
 ---
 
@@ -79,7 +85,7 @@ type Query {
 
 ## Resolver
 
-- How we response to the graph
+- Resolvers define `how to fetch the data` for each field in your schema.
 
 ```gql
 const resolvers={
@@ -199,6 +205,7 @@ const resolvers={
 
 ## Mutation (add, delete, edit)
 
+- Applying data modification to resources such as add, delete, update
 - Any kind of action we want to do for the data.
 
 - Here is example for `add`, `delete` and `update`
@@ -295,9 +302,14 @@ const resolvers={
 }
 ```
 
+## Subscription
+
+- `Client side` receive notification on data modification
+
 ## Connection for each file
 
-- type (schema) -> query (schema) -> resolver
+1.  `Client` sends query or mutation to `server`
+2.  -> type (schema) -> query (schema) -> resolver
 
 ## GraphQL servers
 
@@ -309,8 +321,34 @@ const resolvers={
 
 # Compare with Rest
 
-✅ Solved over-fetching or under-fetching
+- Same
+  | Feature | REST | GraphQL |
+  | ------------------ | :---------------: | ---------------: |
+  | HTTP Usage | Yes | Yes |
+  | Request Format | URL-based | URL-based |
+  | Response Format | JSON | JSON |
+
+- Different
+  | Feature | REST | GraphQL |
+  | :------------------- | :----------------: | :--------------: |
+  | Data Fetching | Multiple Endpoints | Single Endpoint |
+  | Data Over-fetching | Yes | No |
+  | Data Under-fetching | Yes | No |
+  | Versioning | Required | Not Needed |
+  | Schema | None | Defined |
+  | Caching | Built-in | Requires Custom |
+  | | ||
+
+- Comparison
+  | | REST | GraphQL |
+  | ------------------- | :----------------: | --------------: |
+  |✅ | | |
+  |❌ |If 1+n table, multiple req from client side | Cache |
 
 # Reference
 
-[YouTube: GraphQL Course for Beginners](https://www.youtube.com/watch?v=5199E50O7SI)
+- [YouTube: GraphQL Course for Beginners [
+  freeCodeCamp.org]](https://www.youtube.com/watch?v=5199E50O7SI)
+- [Youtube: What Is GraphQL? REST vs. GraphQL [ByteByteGo]
+  ](https://www.youtube.com/watch?v=yWzKJPw_VzM)
+- [Article: What’s the Difference Between GraphQL and REST?](https://aws.amazon.com/compare/the-difference-between-graphql-and-rest/)
