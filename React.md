@@ -1,6 +1,11 @@
 - [What is React](#what-is-react)
 - [Hooks](#hooks)
   - [useState](#usestate)
+  - [useRef](#useref)
+  - [useEffect](#useeffect)
+  - [useReducer](#usereducer)
+  - [useQuery](#usequery)
+- [Custom Hook]()
 
 ## What is React?
 
@@ -16,6 +21,8 @@
 2. always the top level no if / loop...
 
 ## Hooks
+
+> **Caution**: Only call it at the `top level` of your component or your `own Hooks`
 
 ### `useState`
 
@@ -76,7 +83,21 @@ useEffect(() => {}, []);
 
 ### `useReducer`
 
+- To handle a state that have multiple action
+- Common practice is using `case` to check the action
+
 ---
+
+### `useQuery`
+
+- To `fetch`, handle API request and `state management` such as loading, error, success states
+- Auto caching
+
+---
+
+## `Custom Hook`
+
+### ``
 
 > The **spread operator** (`...`) is a useful feature in JavaScript, particularly in frameworks like React.<br><br>
 > It allows you to expand elements of an array or properties of an object into a new array or object. This is especially handy for creating copies of arrays or objects, concatenating or combining arrays, and passing properties to a component as props. It's a concise and convenient way to handle various operations in JavaScript and React.
