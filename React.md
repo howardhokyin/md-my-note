@@ -19,13 +19,16 @@
 
 ### `useState`
 
+- Add state variable to component and "remember" value
+- It will trigger `re-render of component` if setter changed
+
 [React UseState](https://react.dev/reference/react/useState#usestate)
 
-> `useState` returns 2 values: the first is the current state (`count`), and the second is a function that updates this state (`setCount`). Below is a simple example to show how `useState` works in React.
+> `useState` returns 2 values: the first is the current state (`count`), and the second is a function that updates this state (`setCount`).
 
 Example:
 
-```js
+```ts
 import React, {useState} from `react`;
 //!! useState must return 2 values -- count and setCount
 //!! and useState(4) 4 is the default value at the beginning.
@@ -47,11 +50,33 @@ return (
 )
 ```
 
+---
+
+### `useRef`
+
+- Use for `DOM element` like `<button/>`, `<input/>`,`<div/>`, `<video/>`
+- Track value that should not trigger UI updates. E.g. previous state values
+- Store `mutable value` that persists across renders without causing re-renders when the value changes.
+
+> **Mutable value**: value can be changed or modified
+
+---
+
 ### `useEffect`
+
+- To perform side effect such as fetching data
+
+Example:
+
+```ts
+useEffect(() => {}, []);
+```
+
+---
 
 ### `useReducer`
 
-##
+---
 
 > The **spread operator** (`...`) is a useful feature in JavaScript, particularly in frameworks like React.<br><br>
 > It allows you to expand elements of an array or properties of an object into a new array or object. This is especially handy for creating copies of arrays or objects, concatenating or combining arrays, and passing properties to a component as props. It's a concise and convenient way to handle various operations in JavaScript and React.
@@ -74,9 +99,5 @@ return (
 ---
 
 1. Prop drilling
-
-## useState
-
-<a>https://react.dev/reference/react/useState#usestate</a>
 
 ## map
