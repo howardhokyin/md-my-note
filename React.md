@@ -85,6 +85,22 @@ useEffect(() => {}, []);
 
 - To handle a state that have multiple action
 - Common practice is using `case` to check the action
+- Must return an array with exactly two items:
+  - 1. Current state of this state variable
+  - 2. Dispatch function
+
+Example:
+
+```ts
+function reducer(state, action) {
+  // ...
+}
+
+const [state, dispatch] = useReducer(reducer, initialArg, init?)
+
+```
+
+> **dispatch** : a action to trigger re-render
 
 ---
 
