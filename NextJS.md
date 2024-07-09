@@ -49,6 +49,23 @@ Two types: 1. Client-side 2. Server-side
 
 ## Authentication
 
+- Using `session` to store user credentials if auth
+  > **`Session Management`**
+  >
+  > 1. Cookie-based
+  > 2. Database
+- `next-auth`
+
+## Middleware
+
+- Control who can access different parts of website
+  - specially for 3 parts:
+    > 1. require to protect route and role navigation
+    > 2. pubic route
+    > 3. unauthenticated user
+- Logic to authorize user access `by checking token`
+- Use **`Matcher`** to specify which route do not require authorization
+
 ### files set up
 
 1. auth.ts
