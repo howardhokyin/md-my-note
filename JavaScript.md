@@ -1,4 +1,6 @@
-#JavaScript
+# JavaScript
+
+## Variable
 
 ## HTML methods
 

@@ -32,5 +32,5 @@ git add .
 ```bash
 # Commit the staged files with a message
 
-> git commit -m "<comment>"
+git commit -m "<comment>"
 ```
